@@ -19,3 +19,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task run(type: JavaExec) {
+    group = "Execution"
+    classpath = sourceSets.main.runtimeClasspath
+    main = "com.couchbase.test.Main"
+}
