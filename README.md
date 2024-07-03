@@ -3,6 +3,8 @@ Simple application that gets all data for a particular document, including all x
 Run with:
 
 ```
+git clone https://github.com/couchbaselabs/couchbase-dump-doc
+cd couchbase-dump-doc
 ./gradlew run --args="--host couchbase://localhost --username YourUsername --password YourPassword --bucket default --scope _default --collection _default --docId test"
 ```
 
