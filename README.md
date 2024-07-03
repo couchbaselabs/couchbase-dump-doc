@@ -1,11 +1,22 @@
 Simple application that gets all data for a particular document, including all xattrs.
 
-Run with:
+The only dependency is Java 8+ JDK, which can be installed with https://sdkman.io.
+
+Run the application with:
 
 ```
 git clone https://github.com/couchbaselabs/couchbase-dump-doc
 cd couchbase-dump-doc
 ./gradlew run --args="--host couchbase://localhost --username YourUsername --password YourPassword --bucket default --scope _default --collection _default --docId test"
+```
+
+Or compile it to an uberjar and run that:
+
+```
+git clone https://github.com/couchbaselabs/couchbase-dump-doc
+cd couchbase-dump-doc
+./gradlew shadowJar
+java -jar ./build/libs/couchbase-dump-doc-0.1.0.jar --host couchbase://localhost --username YourUsername --password YourPassword --bucket default --scope _default --collection _default --docId test
 ```
 
 If successful the output will include:
