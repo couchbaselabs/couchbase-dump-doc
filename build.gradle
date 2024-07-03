@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.0'
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -18,6 +22,15 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+shadowJar {
+    archiveBaseName.set('couchbase-dump-doc')
+    archiveVersion.set('0.1.0')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'com.couchbase.test.Main'
+    }
 }
 
 task run(type: JavaExec) {
